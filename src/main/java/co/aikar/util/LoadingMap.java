@@ -58,7 +58,7 @@ public class LoadingMap <K,V> extends AbstractMap<K, V> {
     private final Function<K, V> loader;
 
     /**
-     * Initializes an auto loading map using specified loader and backing map
+     * Initializes an autoload map using specified loader and backing map
      * @param backingMap
      * @param loader
      */
@@ -82,9 +82,9 @@ public class LoadingMap <K,V> extends AbstractMap<K, V> {
     /**
      * Creates a LoadingMap with an auto instantiating loader.
      *
-     * Will auto construct class of of Value when not found
+     * Will auto construct class of Value when not found
      *
-     * Since this uses Reflection, It is more effecient to define your own static loader
+     * Since this uses Reflection, It is more efficient to define your own static loader
      * than using this helper, but if performance is not critical, this is easier.
      *
      * @param backingMap Actual map being used.
@@ -101,9 +101,9 @@ public class LoadingMap <K,V> extends AbstractMap<K, V> {
     /**
      * Creates a LoadingMap with an auto instantiating loader.
      *
-     * Will auto construct class of of Value when not found
+     * Will auto construct class of Value when not found
      *
-     * Since this uses Reflection, It is more effecient to define your own static loader
+     * Since this uses Reflection, It is more efficient to define your own static loader
      * than using this helper, but if performance is not critical, this is easier.
      *
      * @param backingMap Actual map being used.

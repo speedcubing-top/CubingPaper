@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <parent>
-    <artifactId>paperspigot-parent</artifactId>
-    <groupId>org.github.paperspigot</groupId>
-    <version>dev-SNAPSHOT</version>
-    <relativePath>../pom.xml/pom.xml</relativePath>
-  </parent>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.github.paperspigot</groupId>
-  <artifactId>paperspigot</artifactId>
+  <groupId>top.speedcubing</groupId>
+  <artifactId>cubingpaper</artifactId>
   <name>PaperSpigot</name>
   <version>1.8.8-R0.1-SNAPSHOT</version>
-  <url>https://hub.spigotmc.org/stash/projects/PAPER/</url>
   <build>
     <defaultGoal>install</defaultGoal>
     <plugins>
@@ -124,6 +117,18 @@
         </executions>
       </plugin>
       <plugin>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>3.0.0-M1</version>
+        <configuration>
+          <repositories>
+            <repository>
+              <id>github</id>
+              <url>https://maven.pkg.github.com/speedcubing-top/CubingPaper</url>
+            </repository>
+          </repositories>
+        </configuration>
+      </plugin>
+      <plugin>
         <groupId>net.md-5</groupId>
         <artifactId>specialsource-maven-plugin</artifactId>
         <version>1.2.4</version>
@@ -167,6 +172,16 @@
       </plugin>
     </plugins>
   </build>
+  <repositories>
+    <repository>
+      <id>papermc</id>
+      <url>https://papermc.io/repo/repository/maven-public/</url>
+    </repository>
+    <repository>
+      <id>elmakers</id>
+      <url>https://maven.elmakers.com/repository/</url>
+    </repository>
+  </repositories>
   <pluginRepositories>
     <pluginRepository>
       <id>spigotmc-public</id>
@@ -181,7 +196,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>4.13.1</version>
       <scope>test</scope>
       <exclusions>
         <exclusion>
@@ -203,14 +218,20 @@
       </exclusions>
     </dependency>
   </dependencies>
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <url>https://maven.pkg.github.com/speedcubing-top/CubingPaper</url>
+    </repository>
+  </distributionManagement>
   <properties>
-    <minecraft.version>1.8.8</minecraft.version>
-    <junit.version>4.11</junit.version>
-    <api.version>unknown</api.version>
     <minecraft_version>1_8_R3</minecraft_version>
-    <maven.compiler.target>1.8</maven.compiler.target>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <buildtag.prefix>git-Bukkit-</buildtag.prefix>
+    <api.version>unknown</api.version>
     <maven.compiler.source>1.8</maven.compiler.source>
+    <minecraft.version>1.8.8</minecraft.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <junit.version>4.13.1</junit.version>
   </properties>
 </project>
