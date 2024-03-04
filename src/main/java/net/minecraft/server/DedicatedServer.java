@@ -192,6 +192,7 @@ public class DedicatedServer extends MinecraftServer implements IMinecraftServer
             }
         }
 
+        top.speedcubing.paper.CubingPaper.init();
             // Spigot Start - Move DedicatedPlayerList up and bring plugin loading from CraftServer to here
             // this.a((PlayerList) (new DedicatedPlayerList(this))); // CraftBukkit
             server.loadPlugins();
