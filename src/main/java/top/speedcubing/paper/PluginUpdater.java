@@ -7,16 +7,14 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
+import java.util.List;
 import java.util.Map;
-import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.logging.Logger;
-import org.spigotmc.RestartCommand;
 
 public class PluginUpdater {
 
@@ -42,7 +40,6 @@ public class PluginUpdater {
         System.out.println("[PluginUpdater] initializing...");
         try {
             JsonObject cfg = CubingPaperConfig.config.getAsJsonObject("plugins");
-            AtomicBoolean restart = new AtomicBoolean(false);
             for (Map.Entry<String, JsonElement> e : cfg.entrySet()) {
                 String url = e.getKey();
                 JsonObject obj = e.getValue().getAsJsonObject();
@@ -104,8 +101,6 @@ public class PluginUpdater {
 
                         obj.addProperty("file", newName);
                         obj.addProperty("hash", newHash);
-
-                        restart.set(restart.get() || update);
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }
@@ -124,9 +119,6 @@ public class PluginUpdater {
 
             executorService.shutdown();
             CubingPaperConfig.update();
-
-            if (restart.get())
-                RestartCommand.restart();
 
         } catch (Exception e) {
             e.printStackTrace();
