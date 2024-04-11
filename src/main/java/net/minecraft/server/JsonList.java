@@ -73,7 +73,8 @@ public class JsonList<K, V extends JsonListEntry<K>> {
     public void add(V v0) {
         this.d.put(this.a(v0.getKey()), v0);
 
-        if (!top.speedcubing.paper.CubingPaperConfig.disableOpsJson)
+        if (!top.speedcubing.paper.CubingPaperConfig.opsJson)
+            return;
         try {
             this.save();
         } catch (IOException ioexception) {
