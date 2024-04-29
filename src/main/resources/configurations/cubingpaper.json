@@ -1,5 +1,13 @@
 {
-  "plugins": {
-
+  "settings": {
+    "cleanLogs": true,
+    "commandOP": true,
+    "limitBlockPlaceDistance": true,
+    "opsJson": false,
+    "playerDataSaving": false,
+    "restartCommand": "",
+    "adaptativeChunkGC": true,
+    "allowMapDecorations": false,
+    "bookMaxPages": 5
   }
 }
