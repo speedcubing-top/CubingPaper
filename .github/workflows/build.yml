@@ -22,13 +22,13 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: cubingPaper
-          path: target/paperspigot-1.8.8-R0.1-SNAPSHOT.jar
+          path: target/cubingpaper-1.8.8-R0.1-SNAPSHOT.jar
       - name: Create Release
         uses: ncipollo/release-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-            artifacts: target/paperspigot-1.8.8-R0.1-SNAPSHOT.jar
+            artifacts: target/cubingpaper-1.8.8-R0.1-SNAPSHOT.jar
             draft: false
             prerelease: true
             releaseName: ${{ github.ref }}
